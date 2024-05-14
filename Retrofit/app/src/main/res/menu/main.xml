@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/op_es"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/Logout"
+                android:title="@string/deslogar"
+                android:icon="@drawable/baseline_exit_to_app_24"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

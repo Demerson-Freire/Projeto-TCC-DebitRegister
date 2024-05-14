@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "317051278226",
+    "project_id": "debitregister-b4985",
+    "storage_bucket": "debitregister-b4985.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317051278226:android:be698ffac220da918d274b",
+        "android_client_info": {
+          "package_name": "com.example.debitregistercliente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgQv0ugIhEW2H1zbXtw6SECyMip2_C-wY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317051278226:android:31f6fb07ebc1882a8d274b",
+        "android_client_info": {
+          "package_name": "com.example.retrofit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgQv0ugIhEW2H1zbXtw6SECyMip2_C-wY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

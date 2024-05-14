@@ -1,0 +1,193 @@
+package com.example.retrofit.views;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.example.retrofit.R;
+import com.example.retrofit.interfaces.ApiService;
+import com.example.retrofit.modelo.Cliente;
+import com.example.retrofit.servicos.ApiServiceManager;
+import com.example.retrofit.watchers.CPFFormatWatcher;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class CadastroCliente extends AppCompatActivity {
+
+    EditText txtCpfCadastroCliente, txtNomeCadastroCliente, txtEmailCadastroCliente, txtSenhaCadastroCliente;
+
+    Button btnCadastrarCliente;
+
+    private ApiService apiService;
+
+    private FirebaseAuth mAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_cadastro_cliente);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        txtCpfCadastroCliente = findViewById(R.id.txtGetCpfClienteCadastroCliente);
+        txtNomeCadastroCliente = findViewById(R.id.txtGetNomeClienteCadastrarCliente);
+        txtEmailCadastroCliente = findViewById(R.id.txtGetEmailClienteCadastroCliente);
+        txtSenhaCadastroCliente = findViewById(R.id.txtGetSenhaClienteCadastroCliente);
+        btnCadastrarCliente = findViewById(R.id.btnCadastrarCliente);
+
+        txtCpfCadastroCliente.addTextChangedListener(new CPFFormatWatcher(txtCpfCadastroCliente));
+
+        apiService = ApiServiceManager.getInstance();
+
+        FirebaseOptions options1 = new FirebaseOptions.Builder()
+                .setApiKey("AIzaSyAgQv0ugIhEW2H1zbXtw6SECyMip2_C-wY")
+                .setApplicationId("1:317051278226:android:be698ffac220da918d274b")
+                .setProjectId("debitregister-b4985")
+                .setStorageBucket("debitregister-b4985.appspot.com")
+                .build();
+        FirebaseApp.initializeApp(this, options1, "DebitRegisterCliente");
+
+        mAuth = FirebaseAuth.getInstance(FirebaseApp.getInstance("DebitRegisterCliente"));
+
+        btnCadastrarCliente.setOnClickListener(view -> verificarCadastroCliente());
+
+    }
+
+    private void verificarCadastroCliente() {
+        // Obter os dados do cliente
+        String idCliente = txtCpfCadastroCliente.getText().toString();
+        String nomeCliente = txtNomeCadastroCliente.getText().toString();
+
+        // Verificar se o CPF foi preenchido
+        if (idCliente.isEmpty()) {
+            Toast.makeText(this, "Por favor, preencha o CPF", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Criar o objeto Cliente
+        Cliente cliente = new Cliente(idCliente, nomeCliente);
+
+        // Chamar o método verificarCadastroCliente com o objeto Cliente
+        Call<Void> call = apiService.verificarCadastroCliente(cliente);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Cliente já cadastrado
+                    AlertDialog.Builder alert = new AlertDialog.Builder(CadastroCliente.this);
+                    alert.setTitle("AVISO!");
+                    alert.setMessage("O CPF informado já está cadastrado!");
+                    alert.setPositiveButton("OK", (dialog, which) -> {
+                        txtCpfCadastroCliente.setText("");
+                        txtCpfCadastroCliente.requestFocus();
+                    });
+                    alert.show();
+                } else {
+                    // Cliente não cadastrado, prosseguir com o cadastro
+                    cadastroClienteFirebase();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                // Tratar falha na requisição
+                Toast.makeText(CadastroCliente.this, "Falha na requisição: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    private void cadastroClienteFirebase(){
+        String email = txtEmailCadastroCliente.getText().toString();
+        String senha = txtSenhaCadastroCliente.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        cadastrarCliente();
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(CadastroCliente.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void cadastrarCliente() {
+        String cpf = txtCpfCadastroCliente.getText().toString();
+        String nome = txtNomeCadastroCliente.getText().toString();
+
+        if (cpf.isEmpty() || nome.isEmpty()){
+            Toast.makeText(CadastroCliente.this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String regexCPF = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}";
+
+        if (!cpf.matches(regexCPF)) {
+            Toast.makeText(CadastroCliente.this, "CPF inválido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Cliente cliente = new Cliente(cpf, nome);
+
+        Call<Void> call = apiService.cadastrarCliente(cliente);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()){
+                    AlertDialog.Builder alert = new AlertDialog.Builder(CadastroCliente.this);
+                    alert.setTitle("AVISO!");
+                    alert.setMessage("Cliente cadastardo com sucesso!\nDeseja realizar outro cadastro?");
+                    alert.setPositiveButton("Sim", (dialog, which) -> {
+                        cadastroClienteFirebase();
+                        txtCpfCadastroCliente.setText("");
+                        txtNomeCadastroCliente.setText("");
+                        txtCpfCadastroCliente.requestFocus();
+                    });
+                    alert.setNegativeButton("Não", (dialog, which) -> {
+                        Intent intent = new Intent(CadastroCliente.this, MenuCadastros.class);
+                        startActivity(intent);
+                        finish();
+                    });
+                    alert.show();
+                } else {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(CadastroCliente.this);
+                    alert.setTitle("AVISO!");
+                    alert.setMessage("Erro ao cadastrar cliente!\nVerifique os dados do cliente.");
+                    alert.setPositiveButton("OK", (dialog, which) -> {
+
+                    });
+                    alert.show();
+                    Toast.makeText(CadastroCliente.this, "Erro ao cadastrar cliente", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                // Tratamento de falha de conexão
+                Toast.makeText(CadastroCliente.this, "Erro de conexão: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+}

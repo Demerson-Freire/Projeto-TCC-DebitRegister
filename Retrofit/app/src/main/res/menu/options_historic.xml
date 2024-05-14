@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_settingsHistorico"
+        android:title="@string/op_es"
+        android:icon="@drawable/baseline_home_24"
+        app:showAsAction="withText">
+        <menu>
+            <item
+                android:id="@+id/menuPrincipal"
+                android:title="@string/menu_principal"
+                android:icon="@drawable/baseline_home_24"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/LogoutHistorico"
+                android:title="@string/deslogar"
+                android:icon="@drawable/baseline_exit_to_app_24"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>
