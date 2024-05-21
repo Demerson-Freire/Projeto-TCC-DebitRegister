@@ -7,14 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".views.CadastroPagamento">
 
-    <TextView
-        android:id="@+id/txtViewRegistrandoPagamento"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCadastroPagamento"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Registrando pagamento"
+        android:background="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewRegistrandoPagamento" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCadastroPagamento" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteRegistrandoPagamento"
@@ -36,7 +34,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.199"
         app:layout_constraintStart_toStartOf="parent"

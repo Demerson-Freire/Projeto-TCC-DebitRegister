@@ -15,6 +15,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 
 public interface ApiService {
@@ -34,8 +35,10 @@ public interface ApiService {
     Call<List<Transacao>> buscarPagamentosPorIdCliente(@Path("idCliente") String idCliente);
     @GET("/api_debit/saldo/{idCliente}/")
     Call<Double> calcularSaldoDebito(@Path("idCliente") String idCliente);
-    /*@GET("/api_debit/cliente/{idCliente}/nome/")
-    Call<String> buscarNomeClientePorId(@Path("idCliente") String idCliente);*/
+    @GET("/api_debit/buscarToken/")
+    Call<String> getToken(@Query("cpf") String cpf);
+    @GET("/api_debit/cliente/busca/{idCliente}")
+    Call<Cliente> buscarClientePorId(@Path("idCliente") String idCliente);
 
     //============ POST ============================================================================
     @POST("/api_debit/login/")
@@ -48,7 +51,12 @@ public interface ApiService {
     Call<Void> cadastrarPagamento(@Body Pagamento pagamento);
     @POST("/api_debit/cliente/verificarCadastro/")
     Call<Void> verificarCadastroCliente(@Body Cliente cliente);
-
+    @POST("/api_debit/notifica/")
+    Call<Void> sendNotification(
+            @Query("token") String token,
+            @Query("title") String title,
+            @Query("body") String body
+    );
     //======================= PUT ==================================================================
     @PUT("/api_debit/compra/update/{codigo}/")
     Call<Void> editaCompraPorCodigo(@Path("codigo") int codigo, @Body Compra compra);

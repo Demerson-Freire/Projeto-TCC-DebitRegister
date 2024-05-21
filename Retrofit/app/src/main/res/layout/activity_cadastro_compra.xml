@@ -7,12 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".views.CadastroCompra">
 
-    <TextView
-        android:id="@+id/txtViewCadastarndoCompra"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCadastroCompra"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Registrando compra"
+        android:background="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCadastarndoCompra" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCadastroCompra" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteCadastrandoCompra"
@@ -35,7 +34,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"

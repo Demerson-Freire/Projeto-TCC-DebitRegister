@@ -35,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteHistorico" />
 

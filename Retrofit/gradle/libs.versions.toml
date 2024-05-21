@@ -13,6 +13,9 @@ firebaseBom = "32.8.1"
 firebaseAnalytics = "21.6.2"
 firebaseAuth = "22.3.1"
 firebaseDatabase = "21.0.0"
+firebaseMessaging = "24.0.0"
+converterScalars = "2.11.0"
+loggingInterceptor = "5.0.0-alpha.14"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -28,6 +31,9 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.r
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars", version.ref = "converterScalars" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -1,5 +1,6 @@
 package com.example.retrofit.views;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,11 +24,15 @@ import com.example.retrofit.R;
 import com.example.retrofit.interfaces.ApiService;
 import com.example.retrofit.modelo.Pagamento;
 import com.example.retrofit.servicos.ApiServiceManager;
+import com.example.retrofit.servicos.RetrofitClient;
+import com.example.retrofit.watchers.CPFFormatWatcher;
+import com.example.retrofit.watchers.ValorWatcher;
 import com.google.firebase.auth.FirebaseAuth;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class AtualizaPagamentos extends AppCompatActivity {
 
@@ -62,6 +67,9 @@ public class AtualizaPagamentos extends AppCompatActivity {
         apiService = ApiServiceManager.getInstance();
         setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
+
+        txtGetIdCliente.addTextChangedListener(new CPFFormatWatcher(txtGetIdCliente));
+        txtGetValorPagamento.addTextChangedListener(new ValorWatcher(txtGetValorPagamento));
 
         recebeCodigo();
 
@@ -151,6 +159,7 @@ public class AtualizaPagamentos extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.isSuccessful()){
+                    fetchToken(idCliente);
                     Toast.makeText(AtualizaPagamentos.this, "Pagamento editado com sucesso!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(AtualizaPagamentos.this, "Erro ao editar pagamento", Toast.LENGTH_SHORT).show();
@@ -164,23 +173,140 @@ public class AtualizaPagamentos extends AppCompatActivity {
         });
     }
 
-    private void deletarPagamento(){
-        int codigo = getIntent().getIntExtra("codigo", 0);
+    private void fetchToken(String cpf) {
+        Retrofit retrofit = RetrofitClient.getClient();
+        ApiService apiService = retrofit.create(ApiService.class);
 
-        Call<Void> call = apiService.deletarPagamento(codigo);
-        call.enqueue(new Callback<Void>() {
+        Call<String> call = apiService.getToken(cpf);
+        call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                if (response.isSuccessful()){
-                    Toast.makeText(AtualizaPagamentos.this, "Pagamento deletado com sucesso", Toast.LENGTH_SHORT).show();
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String token = response.body();
+                    enviarNotificacao(token);
                 } else {
-                    Toast.makeText(AtualizaPagamentos.this, "Falha ao deletar pagamento", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AtualizaPagamentos.this, "Token não encontrado!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable throwable) {
-                Toast.makeText(AtualizaPagamentos.this, "Erro ao se comunicar com o servidor", Toast.LENGTH_SHORT).show();
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                Toast.makeText(AtualizaPagamentos.this, "Erro: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void enviarNotificacao(String token) {
+
+        double valor = Double.parseDouble(txtGetValorPagamento.getText().toString());
+
+        String title = "Pagamento alterado!";
+        String body = "O valor de uma pagamento foi alterado para o valor de R$:"+ valor +", na sua conta Debit Register!\n" +
+                "Caso você não reconheça essa alteração, entre em contato com o vendedor.";
+
+        // Envia a notificação usando o token
+        apiService.sendNotification(token, title, body).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Notificação enviada com sucesso
+                    Toast.makeText(AtualizaPagamentos.this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Falha ao enviar a notificação
+                    Toast.makeText(AtualizaPagamentos.this, "Erro ao enviar a notificação!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                // Trate a falha na requisição
+                Toast.makeText(AtualizaPagamentos.this, "Falha ao tentar enviar notificação", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void deletarPagamento(){
+        int codigo = getIntent().getIntExtra("codigo", 0);
+        String idCliente = txtGetIdCliente.getText().toString();
+
+       if (idCliente.isEmpty()){
+           Toast.makeText(this, "Erro ao atualizar pagamento!\n Verifique se os dados estão corretos.", Toast.LENGTH_SHORT).show();
+       } else {
+           AlertDialog.Builder alert = new AlertDialog.Builder(AtualizaPagamentos.this);
+           alert.setTitle("AVISO!");
+           alert.setMessage("Deseja realmente deletar esse pagamento?");
+           alert.setPositiveButton("Sim", (dialog, which) -> {
+               Call<Void> call = apiService.deletarPagamento(codigo);
+               call.enqueue(new Callback<Void>() {
+                   @Override
+                   public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                       if (response.isSuccessful()){
+                           fetchTokenDel(idCliente);
+                           Toast.makeText(AtualizaPagamentos.this, "Pagamento deletado com sucesso", Toast.LENGTH_SHORT).show();
+                       } else {
+                           Toast.makeText(AtualizaPagamentos.this, "Falha ao deletar pagamento", Toast.LENGTH_SHORT).show();
+                       }
+                   }
+
+                   @Override
+                   public void onFailure(@NonNull Call<Void> call, @NonNull Throwable throwable) {
+                       Toast.makeText(AtualizaPagamentos.this, "Erro ao se comunicar com o servidor", Toast.LENGTH_SHORT).show();
+                   }
+               });
+           });
+           alert.setNegativeButton("Não", (dialog, which) -> {
+
+           });
+           alert.show();
+       }
+    }
+
+    private void fetchTokenDel(String cpf) {
+        Retrofit retrofit = RetrofitClient.getClient();
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        Call<String> call = apiService.getToken(cpf);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String token = response.body();
+                    enviarNotificacaoDel(token);
+                } else {
+                    Toast.makeText(AtualizaPagamentos.this, "Token não encontrado!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                Toast.makeText(AtualizaPagamentos.this, "Erro: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void enviarNotificacaoDel(String token) {
+
+        double valor = Double.parseDouble(txtGetValorPagamento.getText().toString());
+
+        String title = "Pagamento cancelado!";
+        String body = "Um pagamento no valor de R$:"+ valor +", foi cancelado na sua conta Debit Register!\n" +
+                "Caso você não reconheça esse cancelamento, entre em contato com o vendedor.";
+
+        // Envia a notificação usando o token
+        apiService.sendNotification(token, title, body).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Notificação enviada com sucesso
+                    Toast.makeText(AtualizaPagamentos.this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Falha ao enviar a notificação
+                    Toast.makeText(AtualizaPagamentos.this, "Erro ao enviar a notificação!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                // Trate a falha na requisição
+                Toast.makeText(AtualizaPagamentos.this, "Falha ao tentar enviar notificação", Toast.LENGTH_SHORT).show();
             }
         });
     }

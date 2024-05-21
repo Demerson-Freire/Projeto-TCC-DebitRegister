@@ -7,15 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".views.DeletaCliente">
 
-    <TextView
-        android:id="@+id/txtViewDeletaCliente"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDeletaCliente"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Deleta Cadastro"
+        android:background="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/txtViewCpfDeletaCadastro"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewDeletaCliente" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarDeletaCliente" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteDeletaCadastro"
@@ -35,7 +35,7 @@
         android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="CPF do Cliente:"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,17 +61,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnDeletarCadastroCliente" />
 
-    <ImageButton
-        android:id="@+id/btnDeleteTeste"
-        android:layout_width="110dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="44dp"
-        android:backgroundTint="#FFFFFF"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGetCpfClienteDeletaCadastro"
-        app:srcCompat="@drawable/bin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

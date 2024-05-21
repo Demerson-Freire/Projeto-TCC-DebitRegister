@@ -2,8 +2,9 @@ package com.example.retrofit.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -12,7 +13,9 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -23,6 +26,7 @@ import com.example.retrofit.interfaces.ApiService;
 import com.example.retrofit.modelo.Transacao;
 import com.example.retrofit.servicos.ApiServiceManager;
 import com.example.retrofit.watchers.CPFFormatWatcher;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -37,6 +41,7 @@ public class ListaPagamentos extends AppCompatActivity {
     TextView txtSaldoCliente;
     ListView listPagamentos;
     ApiService apiService;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,9 @@ public class ListaPagamentos extends AppCompatActivity {
             return insets;
         });
 
+        setTitle("Lista de Pagamentos");
+
+        Toolbar toolbar = findViewById(R.id.toolbarListaPagamento);
         btnBuscarPagamentos = findViewById(R.id.btnBuscarCpfClientePagamentos);
         btnBuscarCpf = findViewById(R.id.btnBuscarCpfClienteListaPagamentos);
         btnRegistrarNovaCompra = findViewById(R.id.btnRegistrarNovaCompraPagamentos);
@@ -58,52 +66,39 @@ public class ListaPagamentos extends AppCompatActivity {
         listPagamentos = findViewById(R.id.lstGetComprasClientePagamentos);
 
         apiService = ApiServiceManager.getInstance();
+        setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
 
         txtGetCpf.addTextChangedListener(new CPFFormatWatcher(txtGetCpf));
 
-        btnBuscarPagamentos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buscarPagamentos();
-                String idCliente = txtGetCpf.getText().toString();
-                buscarSaldoDebito(idCliente);
-            }
+        btnBuscarPagamentos.setOnClickListener(v -> {
+            buscarPagamentos();
+            String idCliente = txtGetCpf.getText().toString();
+            buscarSaldoDebito(idCliente);
         });
 
-        btnRegistrarNovaCompra.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ListaPagamentos.this, CadastroCompra.class);
-                startActivity(intent);
-            }
+        btnRegistrarNovaCompra.setOnClickListener(v -> {
+            Intent intent = new Intent(ListaPagamentos.this, CadastroCompra.class);
+            startActivity(intent);
         });
 
-        btnRealizarPagamento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ListaPagamentos.this, CadastroPagamento.class);
-                startActivity(intent);
-            }
+        btnRealizarPagamento.setOnClickListener(v -> {
+            Intent intent = new Intent(ListaPagamentos.this, CadastroPagamento.class);
+            startActivity(intent);
         });
 
-        btnBuscarCpf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ListaPagamentos.this, BuscaCpfPagamentos.class);
-                startActivity(intent);
-            }
+        btnBuscarCpf.setOnClickListener(v -> {
+            Intent intent = new Intent(ListaPagamentos.this, BuscaCpfPagamentos.class);
+            startActivity(intent);
         });
 
-        listPagamentos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Transacao transacao = (Transacao) parent.getItemAtPosition(position);
-                int codigo = transacao.getCodigo();
-                Intent intent = new Intent(ListaPagamentos.this, AtualizaPagamentos.class);
-                intent.putExtra("codigo", codigo);
-                startActivity(intent);
-                finish();
-            }
+        listPagamentos.setOnItemClickListener((parent, view, position, id) -> {
+            Transacao transacao = (Transacao) parent.getItemAtPosition(position);
+            int codigo = transacao.getCodigo();
+            Intent intent = new Intent(ListaPagamentos.this, AtualizaPagamentos.class);
+            intent.putExtra("codigo", codigo);
+            startActivity(intent);
+            finish();
         });
 
         // Recuperando o CPF passado como extra
@@ -111,6 +106,41 @@ public class ListaPagamentos extends AppCompatActivity {
         // Definindo o texto da EditText
         txtGetCpf.setText(cpfCliente);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = new MenuInflater(ListaPagamentos.this);
+        menuInflater.inflate(R.menu.options_historic, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menuPrincipal){
+            Intent intent = new Intent(ListaPagamentos.this, MenuPrincipal.class);
+            startActivity(intent);
+            finish();
+            return true;
+        } else if (id == R.id.LogoutHistorico){
+            AlertDialog.Builder alert = new AlertDialog.Builder(ListaPagamentos.this);
+            alert.setTitle("AVISO!");
+            alert.setMessage("Deseja realmente se desconectar?");
+            alert.setPositiveButton("Sim", (dialog, which) -> {
+                mAuth.signOut();
+                Intent intent = new Intent(ListaPagamentos.this, LoginAdm.class);
+                startActivity(intent);
+                finish();
+            });
+            alert.setNegativeButton("Não", (dialog, which) -> {
+
+            });
+            alert.show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void buscarPagamentos() {

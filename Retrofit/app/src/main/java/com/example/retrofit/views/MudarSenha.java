@@ -2,6 +2,9 @@ package com.example.retrofit.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -9,6 +12,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -35,10 +39,14 @@ public class MudarSenha extends AppCompatActivity {
             return insets;
         });
 
+        setTitle("Alterar Senha");
+
+        Toolbar toolbar = findViewById(R.id.toolbarMudarSenha);
         txtGetEmail = findViewById(R.id.txtGetEmailMudarSenha);
         btnEnviarEmail = findViewById(R.id.btnEnviarEmailMudarSenha);
 
         mAuth = FirebaseAuth.getInstance();
+        setSupportActionBar(toolbar);
 
         btnEnviarEmail.setOnClickListener(v -> {
             mudarSenha();

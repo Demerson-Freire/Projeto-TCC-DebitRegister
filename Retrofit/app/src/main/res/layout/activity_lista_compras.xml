@@ -8,14 +8,12 @@
     android:background="@drawable/onepiece"
     tools:context=".views.ListaCompras">
 
-    <TextView
-        android:id="@+id/txtViewCompras"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarListaCompras"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Compras"
+        android:background="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCompras" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarListaCompras" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteCompras"
@@ -38,7 +36,7 @@
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteCompras" />
 
@@ -51,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteCompras"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCompras" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarListaCompras" />
 
     <ListView
         android:id="@+id/lstGetComprasClienteCompras"

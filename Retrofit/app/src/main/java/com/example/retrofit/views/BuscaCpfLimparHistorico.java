@@ -37,9 +37,7 @@ public class BuscaCpfLimparHistorico extends AppCompatActivity {
     Button btnBuscarCliente;
     ListView txtListaNomesCPF;
     ApiService apiService;
-
     private FirebaseAuth mAuth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -7,15 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".views.MenuCadastros">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMenuCadastros"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btnCadastrarClienteMenuCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="144dp"
         android:text="Cadastrar Cliente"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMenuCadastros" />
 
     <Button
         android:id="@+id/btnDeletarClienteMenuCadastro"

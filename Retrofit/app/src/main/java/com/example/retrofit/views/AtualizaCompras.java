@@ -23,6 +23,7 @@ import com.example.retrofit.R;
 import com.example.retrofit.interfaces.ApiService;
 import com.example.retrofit.modelo.Compra;
 import com.example.retrofit.servicos.ApiServiceManager;
+import com.example.retrofit.servicos.RetrofitClient;
 import com.example.retrofit.watchers.CPFFormatWatcher;
 import com.example.retrofit.watchers.ValorWatcher;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +32,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class AtualizaCompras extends AppCompatActivity {
 
@@ -162,6 +164,7 @@ public class AtualizaCompras extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                     if (response.isSuccessful()){
+                        fetchToken(idCliente);
                         Toast.makeText(AtualizaCompras.this, "Compra editada com sucesso!", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(AtualizaCompras.this, "Erro ao editar compra", Toast.LENGTH_SHORT).show();
@@ -178,8 +181,58 @@ public class AtualizaCompras extends AppCompatActivity {
 
         });
         alert.show();
+    }
 
+    private void fetchToken(String cpf) {
+        Retrofit retrofit = RetrofitClient.getClient();
+        ApiService apiService = retrofit.create(ApiService.class);
 
+        Call<String> call = apiService.getToken(cpf);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String token = response.body();
+                    enviarNotificacao(token);
+                } else {
+                    Toast.makeText(AtualizaCompras.this, "Token não encontrado!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                Toast.makeText(AtualizaCompras.this, "Erro: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void enviarNotificacao(String token) {
+
+        double valor = Double.parseDouble(txtGetValorCompra.getText().toString());
+
+        String title = "Compra alterada!";
+        String body = "O valor de uma compra foi alterada para o valor de R$:"+valor+", na sua conta Debit Register!\n" +
+                "Caso você não reconheça essa alteração, entre em contato com o vendedor.";
+
+        // Envia a notificação usando o token
+        apiService.sendNotification(token, title, body).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Notificação enviada com sucesso
+                    Toast.makeText(AtualizaCompras.this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Falha ao enviar a notificação
+                    Toast.makeText(AtualizaCompras.this, "Erro ao enviar a notificação!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                // Trate a falha na requisição
+                Toast.makeText(AtualizaCompras.this, "Falha ao tentar enviar notificação", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void deletaCompra(){
