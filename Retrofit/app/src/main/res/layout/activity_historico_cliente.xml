@@ -8,45 +8,33 @@
     android:background="@drawable/tela2"
     tools:context=".views.HistoricoCliente">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarHistoricoCliente"
+        android:layout_width="411dp"
+        android:layout_height="43dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
     <EditText
         android:id="@+id/txtGetCpfClienteHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="116dp"
         android:ems="10"
         android:hint="Informe CPF do cliente:"
         android:inputType="number"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <Button
-        android:id="@+id/btnBuscarHistoricoCliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:fontFamily="sans-serif"
-        android:text="Buscar Histórico"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteHistorico"
-        tools:layout_editor_absoluteY="128dp" />
-
-    <ListView
-        android:id="@+id/lstListaHistorico"
-        android:layout_width="372dp"
-        android:layout_height="324dp"
-        android:layout_marginTop="19dp"
-        android:background="@drawable/rounded_corners_background"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteHistorico" />
+        tools:layout_editor_absoluteX="20dp" />
 
     <TextView
         android:id="@+id/txtViewValorDebitoHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
         android:text="Saldo do cliente:"
@@ -54,6 +42,80 @@
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lstListaHistorico" />
+
+    <Button
+        android:id="@+id/btnLimpraHistoricoHistorico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="636dp"
+        android:backgroundTint="#DC0000"
+        android:text="Limprar histórico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbarHistoricoCliente" />
+
+    <Button
+        android:id="@+id/btnRegistrarNovaCompraHistorico"
+        android:layout_width="112dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="548dp"
+        android:fontFamily="sans-serif"
+        android:text="Registrar Compra"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintStart_toEndOf="@+id/btnBuscarCpfClienteHistorico"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBuscarCpfClienteHistorico"
+        android:layout_width="100dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="548dp"
+        android:fontFamily="sans-serif"
+        android:text="Buscar Cliente"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <Button
+        android:id="@+id/btnRegistrarPagamentoHistorico"
+        android:layout_width="139dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="548dp"
+        android:fontFamily="sans-serif"
+        android:text="Pagamento"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintStart_toEndOf="@+id/btnRegistrarNovaCompraHistorico"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lstListaHistorico"
+        android:layout_width="372dp"
+        android:layout_height="324dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corners_background"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteHistorico" />
+
+    <Button
+        android:id="@+id/btnBuscarHistoricoCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="116dp"
+        android:fontFamily="sans-serif"
+        android:text="Buscar Histórico"
+        android:textStyle="bold"
+        android:typeface="serif"
+        app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteHistorico"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtGetValorDebitoHistorico"
@@ -67,51 +129,5 @@
         app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toEndOf="@+id/txtViewValorDebitoHistorico"
         app:layout_constraintTop_toBottomOf="@+id/lstListaHistorico" />
-
-    <Button
-        android:id="@+id/btnBuscarCpfClienteHistorico"
-        android:layout_width="100dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="560dp"
-        android:fontFamily="sans-serif"
-        android:text="Buscar Cliente"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="20dp" />
-
-    <Button
-        android:id="@+id/btnLimpraHistoricoHistorico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#DC0000"
-        android:text="Limprar histórico"
-        app:layout_constraintTop_toBottomOf="@+id/btnBuscarCpfClienteHistorico"
-        tools:layout_editor_absoluteX="127dp" />
-
-    <Button
-        android:id="@+id/btnRegistrarNovaCompraHistorico"
-        android:layout_width="112dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="20dp"
-        android:fontFamily="sans-serif"
-        android:text="Registrar Compra"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintStart_toEndOf="@+id/btnBuscarCpfClienteHistorico"
-        tools:layout_editor_absoluteY="560dp" />
-
-    <Button
-        android:id="@+id/btnRegistrarPagamentoHistorico"
-        android:layout_width="139dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="12dp"
-        android:fontFamily="sans-serif"
-        android:text="Pagamento"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintStart_toEndOf="@+id/btnRegistrarNovaCompraHistorico"
-        tools:layout_editor_absoluteY="560dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

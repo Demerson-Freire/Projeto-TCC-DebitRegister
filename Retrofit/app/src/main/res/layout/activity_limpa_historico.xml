@@ -8,6 +8,17 @@
     android:background="@drawable/tela2"
     tools:context=".views.LimpaHistorico">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarLimpaHistorico"
+        android:layout_width="411dp"
+        android:layout_height="43dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
     <TextView
         android:id="@+id/txtViewCpfClienteLimparHistorico"
         android:layout_width="wrap_content"
@@ -38,24 +49,28 @@
         android:id="@+id/btnLimparHistoricoLimparHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#DC0202"
         android:fontFamily="sans-serif"
-        android:text="Limpar Histórico"
+        android:text="Apagar Histórico"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteLimparHistorico"
-        tools:layout_editor_absoluteX="127dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteLimparHistorico" />
 
     <Button
         android:id="@+id/btnBuscaCpfClienteLimparHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="176dp"
         android:fontFamily="sans-serif"
         android:text="Buscar CPF"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteLimparHistorico"
-        tools:layout_editor_absoluteY="179dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

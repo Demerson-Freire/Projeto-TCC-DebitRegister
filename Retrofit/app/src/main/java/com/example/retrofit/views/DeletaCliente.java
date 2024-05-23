@@ -39,7 +39,7 @@ public class DeletaCliente extends AppCompatActivity {
 
         setTitle("Deletar Cliente");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarDeletaCliente);
+        Toolbar toolbar = findViewById(R.id.toolbarDeletaCliente);
         txtCpfDeletaCadastroCliente = findViewById(R.id.txtGetCpfClienteDeletaCadastro);
         btnDeletarCadastroCliente = findViewById(R.id.btnDeletarCadastroCliente);
         btnBuscaNomeCpf = findViewById(R.id.btnGetCpfClienteDeletaCadastro);
@@ -47,7 +47,7 @@ public class DeletaCliente extends AppCompatActivity {
         txtCpfDeletaCadastroCliente.addTextChangedListener(new CPFFormatWatcher(txtCpfDeletaCadastroCliente));
 
         apiService = ApiServiceManager.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnDeletarCadastroCliente.setOnClickListener(view -> deletarCliente());

@@ -41,15 +41,15 @@ public class BuscaCpfDeletaCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busca_cpf_deleta_cliente);
 
-        setTitle("Buscando CPF");
+        setTitle("Buscar CPF");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfDeletaCliente);
+        Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfDeletaCliente);
         txtNomeCliente = findViewById(R.id.txtGetNomeClienteBuscaNomeCpf);
         btnBuscarCliente = findViewById(R.id.btnBuscarNomeClienteNomeCpf);
         txtListaNomesCPF = findViewById(R.id.txtListaNomeCpf);
 
         apiService = ApiServiceManager.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCliente.setOnClickListener(v -> {

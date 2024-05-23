@@ -50,15 +50,15 @@ public class BuscaCpfLimparHistorico extends AppCompatActivity {
             return insets;
         });
 
-        setTitle("Buscando CPF");
+        setTitle("Buscar CPF");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfLimparHistorico);
+        Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfLimparHistorico);
         txtNomeCliente = findViewById(R.id.txtGetNomeClienteBuscaNomeCpfLimparHistorico);
         btnBuscarCliente = findViewById(R.id.btnBuscarNomeClienteNomeCpfLimparHistorico);
         txtListaNomesCPF = findViewById(R.id.txtListaNomeCpfLimparHistorico);
 
         apiService = ApiServiceManager.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCliente.setOnClickListener(v -> {

@@ -78,4 +78,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdmCadastros" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMenuPrincipal"
+        android:layout_width="411dp"
+        android:layout_height="43dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

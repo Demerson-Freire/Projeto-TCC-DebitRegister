@@ -36,11 +36,11 @@ public class MenuCadastros extends AppCompatActivity {
 
         setTitle("Menu Cadastros");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarMenuCadastros);
+        Toolbar toolbar = findViewById(R.id.toolbarMenuCadastros);
         btnCadastrarClienteMenu = findViewById(R.id.btnCadastrarClienteMenuCadastro);
         btnDeletarCadastroMenu = findViewById(R.id.btnDeletarClienteMenuCadastro);
 
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnCadastrarClienteMenu.setOnClickListener(v -> {

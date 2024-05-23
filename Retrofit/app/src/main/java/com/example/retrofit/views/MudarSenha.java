@@ -41,12 +41,12 @@ public class MudarSenha extends AppCompatActivity {
 
         setTitle("Alterar Senha");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarMudarSenha);
+        Toolbar toolbar = findViewById(R.id.toolbarMudarSenha);
         txtGetEmail = findViewById(R.id.txtGetEmailMudarSenha);
         btnEnviarEmail = findViewById(R.id.btnEnviarEmailMudarSenha);
 
         mAuth = FirebaseAuth.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         btnEnviarEmail.setOnClickListener(v -> {
             mudarSenha();

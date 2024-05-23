@@ -8,6 +8,17 @@
     android:background="@drawable/tela2"
     tools:context=".views.CadastroUsuario">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCadastroUsuario"
+        android:layout_width="411dp"
+        android:layout_height="43dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
     <TextView
         android:id="@+id/txtViewEmailCadastroUsuario"
         android:layout_width="wrap_content"
@@ -62,14 +73,14 @@
 
     <TextView
         android:id="@+id/txtViewConfirmaSenhaCadastroUsuario"
-        android:layout_width="108dp"
-        android:layout_height="24dp"
+        android:layout_width="136dp"
+        android:layout_height="23dp"
         android:layout_marginTop="36dp"
         android:text="Confirmar senha:"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetSenhaCadastroUsuario" />
 

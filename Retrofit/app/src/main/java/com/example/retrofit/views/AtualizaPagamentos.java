@@ -55,9 +55,9 @@ public class AtualizaPagamentos extends AppCompatActivity {
             return insets;
         });
 
-        setTitle("Edição de pagamentos");
+        setTitle("Atualizar Pagamentos");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarAtualizaPagamentos);
+        Toolbar toolbar = findViewById(R.id.toolbarAtualizaPagamentos);
         txtGetCodigo = findViewById(R.id.txtGetCodigoPagamentoEditandoPagamento);
         txtGetIdCliente = findViewById(R.id.txtGetCpfClienteEditandoPagamento);
         txtGetValorPagamento = findViewById(R.id.txtGetValorPagamentoEditandoPagamento);
@@ -65,7 +65,7 @@ public class AtualizaPagamentos extends AppCompatActivity {
         btnDeletaPagemento = findViewById(R.id.btnExcluirPagamentoEditandoPagamento);
 
         apiService = ApiServiceManager.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         txtGetIdCliente.addTextChangedListener(new CPFFormatWatcher(txtGetIdCliente));

@@ -40,13 +40,13 @@ public class CadastroUsuario extends AppCompatActivity {
 
         setTitle("Cadastrar Usuário");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarCadastroUsuario);
+        Toolbar toolbar = findViewById(R.id.toolbarCadastroUsuario);
         txtGetEmail = findViewById(R.id.txtGetEmailCadastroUsuario);
         txtGetSenha = findViewById(R.id.txtGetSenhaCadastroUsuario);
         txtGetConfirmaSenha = findViewById(R.id.txtGetConfirmaSenhaCadastroUsuario);
         btnCadastrarUsuario = findViewById(R.id.btnCadastrarUsuarioCadastroUsuario);
 
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
 

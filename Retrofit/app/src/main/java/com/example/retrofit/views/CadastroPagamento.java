@@ -52,7 +52,7 @@ public class CadastroPagamento extends AppCompatActivity {
 
         setTitle("Cadastrar Pagamento");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarCadastroPagamento);
+        Toolbar toolbar = findViewById(R.id.toolbarCadastroPagamento);
         txtGetCpfCliente = findViewById(R.id.txtGetCpfClienteRegistrandoPagamento);
         txtGetValorPagamento = findViewById(R.id.txtGetValorPagamentoRegistrandoPagamento);
         btnBuscaCpfCliente = findViewById(R.id.btnBuscaCpfClienteRegistrandoPagamento);
@@ -62,7 +62,7 @@ public class CadastroPagamento extends AppCompatActivity {
         txtGetValorPagamento.addTextChangedListener(new ValorWatcher(txtGetValorPagamento));
 
         apiService = ApiServiceManager.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnSalvaPagamento.setOnClickListener(v -> cadastrarPagameneto());

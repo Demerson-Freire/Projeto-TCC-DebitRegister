@@ -55,9 +55,9 @@ public class AtualizaCompras extends AppCompatActivity {
             return insets;
         });
 
-        setTitle("Edição de compras");
+        setTitle("Atualizar Compras");
 
-        //Toolbar toolbar = findViewById(R.id.toolbarAtualizaCompras);
+        Toolbar toolbar = findViewById(R.id.toolbarAtualizaCompras);
         txtGetCodigo = findViewById(R.id.txtGetCodigoCompraEditandoCompra);
         txtGetIdCliente = findViewById(R.id.txtGetCpfClienteEditandoCompra);
         txtGetValorCompra = findViewById(R.id.txtGetValorCompraEditandoCompra);
@@ -68,7 +68,7 @@ public class AtualizaCompras extends AppCompatActivity {
         txtGetValorCompra.addTextChangedListener(new ValorWatcher(txtGetValorCompra));
 
         apiService = ApiServiceManager.getInstance();
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         recebeCodigo();
