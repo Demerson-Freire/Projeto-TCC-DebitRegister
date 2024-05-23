@@ -5,27 +5,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tela2"
     tools:context=".views.AtualizaPagamentos">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAtualizaPagamentos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:background="#03A9F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtViewCpfClienteEditandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="CPF do cliente:"
+        android:layout_marginTop="32dp"
+        android:text="CPF do Cliente:"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCodigoPagamentoEditandoPagamento" />
 
@@ -33,12 +25,12 @@
         android:id="@+id/txtGetCpfClienteEditandoPagamento"
         android:layout_width="256dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Informe o CPF do cliente:"
+        android:hint="Informe o CPF do Cliente:"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteEditandoPagamento" />
 
@@ -47,9 +39,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Valor do pagamento:"
+        android:fontFamily="sans-serif"
+        android:text="Valor do Pagamento:"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteEditandoPagamento" />
 
@@ -57,12 +52,12 @@
         android:id="@+id/txtGetValorPagamentoEditandoPagamento"
         android:layout_width="260dp"
         android:layout_height="46dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Informe o valor do pagamento:"
+        android:hint="Informe Valor do Pagamento:"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewValorPagamentoEditandoPagamento" />
 
@@ -73,6 +68,7 @@
         android:layout_marginTop="76dp"
         android:text="Salvar alterações"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetValorPagamentoEditandoPagamento" />
 
@@ -80,10 +76,11 @@
         android:id="@+id/btnExcluirPagamentoEditandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#DF0000"
         android:text="Excluir pagamento"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegistrarPagamentoEditandoPagamento" />
 
@@ -91,20 +88,25 @@
         android:id="@+id/txtViewCodigoPagamentoEditandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:text="Código do pagamento:"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="172dp"
+        android:fontFamily="sans-serif"
+        android:text="Código do Pagamento:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarAtualizaPagamentos" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtGetCodigoPagamentoEditandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toEndOf="@+id/txtViewCodigoPagamentoEditandoPagamento"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarAtualizaPagamentos" />
+        tools:layout_editor_absoluteY="172dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

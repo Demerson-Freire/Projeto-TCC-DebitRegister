@@ -5,26 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/onepiece"
+    android:background="@drawable/tela"
     tools:context=".views.MenuPrincipal">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarMenuPrincipal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAdmCadastros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Cadastros dos clientes"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif"
+        android:text="Cadastros dos Clientes"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdmHistoricoMenuPrincipal" />
 
@@ -32,10 +26,13 @@
         android:id="@+id/btnAdmHistoricoMenuPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Histórico dos clientes"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif"
+        android:text="Histórico dos Clientes"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdmPagamentosMenuPrincipal" />
 
@@ -43,21 +40,27 @@
         android:id="@+id/btnAdmComprasMenuPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Administar compras"
+        android:layout_marginTop="148dp"
+        android:fontFamily="sans-serif"
+        android:text="Administar Compras"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMenuPrincipal" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAdmPagamentosMenuPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif"
         android:text="Administrar pagamentos"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdmComprasMenuPrincipal" />
 
@@ -65,10 +68,13 @@
         android:id="@+id/btnCadastrarUsuarioMenuPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Cadastrar Adm"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif"
+        android:text="Cadastrar Administrador"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAdmCadastros" />
 

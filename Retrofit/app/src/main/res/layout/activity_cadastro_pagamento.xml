@@ -5,38 +5,33 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tela2"
     tools:context=".views.CadastroPagamento">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCadastroPagamento"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtViewCpfClienteRegistrandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="CPF do cliente:"
+        android:layout_marginTop="140dp"
+        android:fontFamily="sans-serif"
+        android:text="CPF do Cliente:"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarCadastroPagamento" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteRegistrandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteRegistrandoPagamento" />
 
@@ -44,10 +39,12 @@
         android:id="@+id/txtViewValorPagamentoRegistrandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:text="Valor do pagamento:"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteRegistrandoPagamento" />
 
@@ -55,12 +52,12 @@
         android:id="@+id/txtGetValorPagamentoRegistrandoPagamento"
         android:layout_width="255dp"
         android:layout_height="50dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Informe o valor do pagamento:"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewValorPagamentoRegistrandoPagamento" />
 
@@ -68,10 +65,13 @@
         android:id="@+id/btnBuscaCpfClienteRegistrandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Buscar CPF do cliente"
+        android:layout_marginTop="64dp"
+        android:fontFamily="sans-serif"
+        android:text="Buscar CPF do Cliente"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetValorPagamentoRegistrandoPagamento" />
 
@@ -79,9 +79,13 @@
         android:id="@+id/btnSalvarPagamentoRegistrandoPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Registrar pagamento"
+        android:layout_marginTop="44dp"
+        android:fontFamily="sans-serif"
+        android:text="Registrar Pagamento"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBuscaCpfClienteRegistrandoPagamento" />
 

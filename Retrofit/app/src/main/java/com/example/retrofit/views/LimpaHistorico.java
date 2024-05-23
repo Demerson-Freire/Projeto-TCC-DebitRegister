@@ -49,13 +49,13 @@ public class LimpaHistorico extends AppCompatActivity {
 
         setTitle("Limpar Histórico");
 
-        Toolbar toolbar = findViewById(R.id.toolbarLimpaHistorico);
+        //Toolbar toolbar = findViewById(R.id.toolbarLimpaHistorico);
         txtCpfCliente = findViewById(R.id.txtGetCpfClienteLimparHistorico);
         btnLimparHistorico = findViewById(R.id.btnLimparHistoricoLimparHistorico);
         btnBuscarCpf = findViewById(R.id.btnBuscaCpfClienteLimparHistorico);
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCpf.setOnClickListener(v -> {

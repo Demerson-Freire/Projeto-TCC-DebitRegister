@@ -51,7 +51,7 @@ public class HistoricoCliente extends AppCompatActivity {
 
         setTitle("Histórico");
 
-        Toolbar toolbar = findViewById(R.id.toolbarHistoricoCliente);
+        //Toolbar toolbar = findViewById(R.id.toolbarHistoricoCliente);
         txtGetCpfCliente = findViewById(R.id.txtGetCpfClienteHistorico);
         btnRegistrarCompra = findViewById(R.id.btnRegistrarNovaCompraHistorico);
         btnRealizarPagamento = findViewById(R.id.btnRegistrarPagamentoHistorico);
@@ -65,7 +65,7 @@ public class HistoricoCliente extends AppCompatActivity {
 
         apiService = ApiServiceManager.getInstance();
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscaHistorico.setOnClickListener(v -> {

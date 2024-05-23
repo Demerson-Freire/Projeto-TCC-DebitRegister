@@ -52,13 +52,13 @@ public class BuscaCpfHistorico extends AppCompatActivity {
 
         setTitle("Buscando CPF");
 
-        Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfHistorico);
+        //Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfHistorico);
         txtNomeCliente = findViewById(R.id.txtGetNomeClienteBuscaNomeCpfHistorico);
         btnBuscarCliente = findViewById(R.id.btnBuscarNomeClienteNomeCpfHistorico);
         txtListaNomesCPF = findViewById(R.id.txtListaNomeCpfHistorico);
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCliente.setOnClickListener(v -> {

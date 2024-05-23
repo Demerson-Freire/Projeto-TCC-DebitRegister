@@ -37,14 +37,14 @@ public class MenuPrincipal extends AppCompatActivity {
 
         setTitle("Menu Principal");
 
-        Toolbar toolbar = findViewById(R.id.toolbarMenuPrincipal);
+        //Toolbar toolbar = findViewById(R.id.toolbarMenuPrincipal);
         btnAdmCliente = findViewById(R.id.btnAdmCadastros);
         btnAdmCompra = findViewById(R.id.btnAdmComprasMenuPrincipal);
         btnAdmHistorico = findViewById(R.id.btnAdmHistoricoMenuPrincipal);
         btnAdmPagamentos = findViewById(R.id.btnAdmPagamentosMenuPrincipal);
         btnAdmUsuarios = findViewById(R.id.btnCadastrarUsuarioMenuPrincipal);
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
 

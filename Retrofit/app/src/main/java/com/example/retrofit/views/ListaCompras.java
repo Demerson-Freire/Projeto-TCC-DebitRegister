@@ -56,7 +56,7 @@ public class ListaCompras extends AppCompatActivity {
 
         setTitle("Lista de Compras");
 
-        Toolbar toolbar = findViewById(R.id.toolbarListaCompras);
+        //Toolbar toolbar = findViewById(R.id.toolbarListaCompras);
         btnBuscarCompras = findViewById(R.id.btnBuscarCpfClienteCompras);
         btnBuscarCpf = findViewById(R.id.btnBuscarCpfClienteListaCompras);
         btnRegistrarNovaCompra = findViewById(R.id.btnRegistrarNovaCompraCompras);
@@ -68,7 +68,7 @@ public class ListaCompras extends AppCompatActivity {
         txtGetCpf.addTextChangedListener(new CPFFormatWatcher(txtGetCpf));
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCompras.setOnClickListener(v -> {

@@ -5,61 +5,45 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tela2"
     tools:context=".views.BuscaCpfRegistraPagamento">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarBuscaCpfRegistraCompra"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#03A9F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtViewNomeClienteBuscaCpfPagamentoRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Nome do cliente:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarBuscaCpfRegistraCompra" />
 
     <EditText
         android:id="@+id/txtGetNomeClienteBuscaNomeCpfPagamentoRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="144dp"
         android:ems="10"
         android:hint="Digite o nome do cliente."
         android:inputType="text"
         app:layout_constraintEnd_toStartOf="@+id/btnBuscarNomeClienteNomeCpfPagamentoRegistro"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewNomeClienteBuscaCpfPagamentoRegistro" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnBuscarNomeClienteNomeCpfPagamentoRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="88dp"
+        android:fontFamily="sans-serif"
         android:text="Buscar"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/txtListaNomeCpfPagamentoRegistro"
-        android:layout_width="326dp"
-        android:layout_height="493dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="379dp"
+        android:layout_height="382dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners_background"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetNomeClienteBuscaNomeCpfPagamentoRegistro" />
 

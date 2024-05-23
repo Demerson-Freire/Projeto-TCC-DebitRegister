@@ -54,7 +54,7 @@ public class CadastroCliente extends AppCompatActivity {
 
         setTitle("Cadastrar Cliente");
 
-        Toolbar toolbar = findViewById(R.id.toolbarCadastroCliente);
+        //Toolbar toolbar = findViewById(R.id.toolbarCadastroCliente);
         txtCpfCadastroCliente = findViewById(R.id.txtGetCpfClienteCadastroCliente);
         txtNomeCadastroCliente = findViewById(R.id.txtGetNomeClienteCadastrarCliente);
         txtEmailCadastroCliente = findViewById(R.id.txtGetEmailClienteCadastroCliente);
@@ -64,7 +64,7 @@ public class CadastroCliente extends AppCompatActivity {
         txtCpfCadastroCliente.addTextChangedListener(new CPFFormatWatcher(txtCpfCadastroCliente));
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         FirebaseOptions options1 = new FirebaseOptions.Builder()

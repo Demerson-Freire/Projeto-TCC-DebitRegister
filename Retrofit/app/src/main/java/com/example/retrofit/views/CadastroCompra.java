@@ -52,7 +52,7 @@ public class CadastroCompra extends AppCompatActivity {
 
         setTitle("Cadastrar Compra");
 
-        Toolbar toolbar = findViewById(R.id.toolbarCadastroCompra);
+        //Toolbar toolbar = findViewById(R.id.toolbarCadastroCompra);
         txtGetCpfCliente = findViewById(R.id.txtGetCpfClienteCadastrandoCompra);
         txtGetValorCompra = findViewById(R.id.txtGetValorCompraCadastrandoCompra);
         btnBuscaCpfCliente = findViewById(R.id.btnBuscarCpfClienteCadastrandoCompra);
@@ -62,7 +62,7 @@ public class CadastroCompra extends AppCompatActivity {
         txtGetValorCompra.addTextChangedListener(new ValorWatcher(txtGetValorCompra));
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnSalvaCompra.setOnClickListener(v -> cadastrarCompra());

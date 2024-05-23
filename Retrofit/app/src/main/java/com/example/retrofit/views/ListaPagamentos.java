@@ -56,7 +56,7 @@ public class ListaPagamentos extends AppCompatActivity {
 
         setTitle("Lista de Pagamentos");
 
-        Toolbar toolbar = findViewById(R.id.toolbarListaPagamento);
+        //Toolbar toolbar = findViewById(R.id.toolbarListaPagamento);
         btnBuscarPagamentos = findViewById(R.id.btnBuscarCpfClientePagamentos);
         btnBuscarCpf = findViewById(R.id.btnBuscarCpfClienteListaPagamentos);
         btnRegistrarNovaCompra = findViewById(R.id.btnRegistrarNovaCompraPagamentos);
@@ -66,7 +66,7 @@ public class ListaPagamentos extends AppCompatActivity {
         listPagamentos = findViewById(R.id.lstGetComprasClientePagamentos);
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         txtGetCpf.addTextChangedListener(new CPFFormatWatcher(txtGetCpf));

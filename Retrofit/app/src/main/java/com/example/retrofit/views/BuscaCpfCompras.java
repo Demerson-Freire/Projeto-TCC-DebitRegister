@@ -54,13 +54,13 @@ public class BuscaCpfCompras extends AppCompatActivity {
 
         setTitle("Buscando CPF");
 
-        Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfCompras);
+        //Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfCompras);
         txtNomeCliente = findViewById(R.id.txtGetNomeClienteBuscaNomeCpfCompras);
         btnBuscarCliente = findViewById(R.id.btnBuscarNomeClienteNomeCpfCompras);
         txtListaNomesCPF = findViewById(R.id.txtListaNomeCpfCompras);
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCliente.setOnClickListener(v -> {

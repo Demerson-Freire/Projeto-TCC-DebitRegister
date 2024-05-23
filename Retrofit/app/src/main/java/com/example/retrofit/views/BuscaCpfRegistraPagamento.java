@@ -52,13 +52,13 @@ public class BuscaCpfRegistraPagamento extends AppCompatActivity {
 
         setTitle("Buscando CPF");
 
-        Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfRegistraCompra);
+        //Toolbar toolbar = findViewById(R.id.toolbarBuscaCpfRegistraCompra);
         txtNomeCliente = findViewById(R.id.txtGetNomeClienteBuscaNomeCpfPagamentoRegistro);
         btnBuscarCliente = findViewById(R.id.btnBuscarNomeClienteNomeCpfPagamentoRegistro);
         txtListaNomesCPF = findViewById(R.id.txtListaNomeCpfPagamentoRegistro);
 
         apiService = ApiServiceManager.getInstance();
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
 
         btnBuscarCliente.setOnClickListener(v -> {
