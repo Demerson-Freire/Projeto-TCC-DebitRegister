@@ -16,8 +16,9 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtGetCpfClientePagamentos"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:ems="10"
-        android:hint="Informe o CPF do cliente:"
+        android:hint="@string/informe_o_cpf_do_cliente"
         android:inputType="number"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="12dp" />
@@ -37,7 +38,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="128dp"
         android:fontFamily="sans-serif"
-        android:text="Buscar Pagamentos"
+        android:text="@string/buscar_pagamentos"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClientePagamentos"
@@ -50,8 +51,9 @@
         android:layout_marginTop="19dp"
         android:background="@drawable/rounded_corners_background"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClientePagamentos"
-        tools:layout_editor_absoluteX="12dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClientePagamentos" />
 
     <TextView
         android:id="@+id/txtViewSaldoClientePagamentos"

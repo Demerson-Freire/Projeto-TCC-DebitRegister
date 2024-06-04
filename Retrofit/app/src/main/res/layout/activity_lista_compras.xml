@@ -10,26 +10,27 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarListaCompras"
-        android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_width="409dp"
+        android:layout_height="61dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteCompras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="128dp"
-        android:layout_marginEnd="18dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/btnBuscarCpfClienteCompras"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,11 +38,13 @@
         android:id="@+id/btnBuscarCpfClienteCompras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="12dp"
         android:text="Buscar compras"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteCompras"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarListaCompras" />
 
     <ListView
         android:id="@+id/lstGetComprasClienteCompras"
@@ -50,32 +53,31 @@
         android:layout_marginTop="19dp"
         android:background="@drawable/rounded_corners_background"
         android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarNovaCompraCompras"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteCompras"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteCompras" />
 
     <TextView
         android:id="@+id/txtViewSaldoClienteCompras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="sans-serif"
         android:text="Saldo do cliente:"
         android:textStyle="bold"
         android:typeface="serif"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lstGetComprasClienteCompras"
-        tools:layout_editor_absoluteX="16dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txtGetSaldoClienteCompras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="7dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toEndOf="@+id/txtViewSaldoClienteCompras"
         app:layout_constraintTop_toBottomOf="@+id/lstGetComprasClienteCompras" />
 
@@ -83,39 +85,41 @@
         android:id="@+id/btnBuscarCpfClienteListaCompras"
         android:layout_width="98dp"
         android:layout_height="73dp"
-        android:layout_marginTop="580dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif"
         android:text="Buscar Cliente"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintEnd_toStartOf="@+id/btnRegistrarNovaCompraCompras"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewSaldoClienteCompras" />
 
     <Button
         android:id="@+id/btnRegistrarPagamentoCompras"
         android:layout_width="127dp"
         android:layout_height="71dp"
-        android:layout_marginTop="584dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="12dp"
         android:fontFamily="sans-serif"
         android:text="Pagamento"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnRegistrarNovaCompraCompras"
+        app:layout_constraintTop_toBottomOf="@+id/lstGetComprasClienteCompras" />
 
     <Button
         android:id="@+id/btnRegistrarNovaCompraCompras"
         android:layout_width="107dp"
         android:layout_height="73dp"
-        android:layout_marginTop="580dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif"
         android:text="Registro Compra"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintEnd_toStartOf="@+id/btnRegistrarPagamentoCompras"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnBuscarCpfClienteListaCompras"
+        app:layout_constraintTop_toBottomOf="@+id/lstGetComprasClienteCompras" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

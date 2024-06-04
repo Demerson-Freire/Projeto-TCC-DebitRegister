@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/styles.xml -->
+<resources>
+    <!-- Defina o estilo do texto para o título do Toolbar -->
+    <style name="CustomToolbarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/ultra</item>
+    </style>
+</resources>
