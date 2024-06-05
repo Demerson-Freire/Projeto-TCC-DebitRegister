@@ -11,32 +11,36 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarLimpaHistorico"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText" />
 
     <TextView
         android:id="@+id/txtViewCpfClienteLimparHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="68dp"
         android:text="CPF do Cliente:"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLimpaHistorico" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteLimparHistorico"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Informe o CPF do cliente:"
         android:inputType="number"
@@ -49,15 +53,13 @@
         android:id="@+id/btnLimparHistoricoLimparHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="108dp"
         android:backgroundTint="#DC0202"
         android:fontFamily="sans-serif"
         android:text="Apagar Histórico"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteLimparHistorico" />
 
@@ -65,12 +67,12 @@
         android:id="@+id/btnBuscaCpfClienteLimparHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif"
         android:text="Buscar CPF"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteLimparHistorico"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteLimparHistorico" />
 </androidx.constraintlayout.widget.ConstraintLayout>

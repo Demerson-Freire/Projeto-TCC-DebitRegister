@@ -12,32 +12,36 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarDeletaCliente"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText" />
 
     <TextView
         android:id="@+id/txtViewCpfDeletaCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
         android:text="CPF Cliente:"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.022"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarDeletaCliente" />
 
     <EditText
         android:id="@+id/txtGetCpfClienteDeletaCadastro"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="CPF do Cliente:"
         android:inputType="number"

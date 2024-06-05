@@ -11,66 +11,67 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarAtualizaCompras"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtViewCpfClienteEditandoCompra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="CPF do Cliente:"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCodigoCompraEditandoCompra" />
-
-    <EditText
-        android:id="@+id/txtGetCpfClienteEditandoCompra"
-        android:layout_width="234dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Informe o CPF do Cliente:"
-        android:inputType="number"
-        android:typeface="serif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteEditandoCompra" />
 
     <TextView
         android:id="@+id/txtViewValorCompraEditandoCompra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="Valor da Compra:"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteEditandoCompra" />
 
     <EditText
         android:id="@+id/txtGetValorCompraEditandoCompra"
         android:layout_width="232dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Informe o valor da compra:"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewValorCompraEditandoCompra" />
+
+    <EditText
+        android:id="@+id/txtGetCpfClienteEditandoCompra"
+        android:layout_width="234dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Informe o CPF do Cliente:"
+        android:inputType="number"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteEditandoCompra" />
 
     <Button
         android:id="@+id/btnRegistrarCompraEditandoCompra"
@@ -87,7 +88,7 @@
         android:id="@+id/btnExcluirCompraEditandoCompra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:backgroundTint="#DF0000"
         android:text="Excluir compra"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,25 +100,26 @@
         android:id="@+id/txtViewCodigoCompraEditandoCompra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="sans-serif"
         android:text="Código da Compra:"
         android:textSize="16sp"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAtualizaCompras" />
 
     <TextView
         android:id="@+id/txtGetCodigoCompraEditandoCompra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtViewCodigoCompraEditandoCompra"
-        tools:layout_editor_absoluteY="172dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAtualizaCompras" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,26 +12,26 @@
     <EditText
         android:id="@+id/txtGetEmailAdm"
         android:layout_width="217dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="480dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="272dp"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/txtGetSenhaAdm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetEmailAdm" />
 
@@ -51,21 +51,20 @@
         android:id="@+id/txtViewNovaSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="sans-serif"
         android:text="Esqueceu sua senha?"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtGetSenhaAdm" />
 
     <TextView
         android:id="@+id/txtLinkNovaSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="12dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="sans-serif"
@@ -74,21 +73,20 @@
         android:textColor="#0334C8"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toEndOf="@+id/txtViewNovaSenha"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtGetSenhaAdm" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="290dp"
         android:layout_height="45dp"
         android:layout_marginTop="160dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/ultra"
         android:text="DEBIT REGISTER"
         android:textAlignment="center"
-        android:textColor="#0B0303"
-        android:textSize="34sp"
-        android:textStyle="bold"
+        android:textColor="#0F12BD"
+        android:textSize="28sp"
         android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

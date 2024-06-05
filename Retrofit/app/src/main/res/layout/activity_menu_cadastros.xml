@@ -11,19 +11,22 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMenuCadastros"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText" />
 
     <Button
         android:id="@+id/btnCadastrarClienteMenuCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="132dp"
         android:fontFamily="sans-serif"
         android:text="Cadastrar Cliente"
         android:textSize="14sp"
@@ -32,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMenuCadastros" />
 
     <Button
         android:id="@+id/btnDeletarClienteMenuCadastro"

@@ -11,40 +11,41 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBuscaCpfPagamento"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText" />
 
     <EditText
         android:id="@+id/txtGetNomeClienteBuscaNomeCpfPagamentos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="144dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Digite o nome do cliente."
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/btnBuscarNomeClienteNomeCpfPagamentos"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarBuscaCpfPagamento" />
 
     <Button
         android:id="@+id/btnBuscarNomeClienteNomeCpfPagamentos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="sans-serif"
         android:text="Buscar"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/txtGetNomeClienteBuscaNomeCpfPagamentos"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarBuscaCpfPagamento" />
 
     <ListView
         android:id="@+id/txtListaNomeCpfPagamentos"

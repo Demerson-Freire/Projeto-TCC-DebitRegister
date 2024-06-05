@@ -11,50 +11,51 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBuscaCpfHistorico"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText" />
 
     <EditText
         android:id="@+id/txtGetNomeClienteBuscaNomeCpfHistorico"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="144dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Digite o nome do cliente."
         android:inputType="text"
-        app:layout_constraintEnd_toStartOf="@+id/btnBuscarNomeClienteNomeCpfHistorico"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarBuscaCpfHistorico" />
 
     <Button
         android:id="@+id/btnBuscarNomeClienteNomeCpfHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="sans-serif"
         android:text="Buscar"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/txtGetNomeClienteBuscaNomeCpfHistorico"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarBuscaCpfHistorico" />
 
     <ListView
         android:id="@+id/txtListaNomeCpfHistorico"
-        android:layout_width="384dp"
+        android:layout_width="392dp"
         android:layout_height="395dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners_background"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetNomeClienteBuscaNomeCpfHistorico" />
 

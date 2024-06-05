@@ -11,47 +11,51 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarListaPagamento"
         android:layout_width="411dp"
-        android:layout_height="43dp"
+        android:layout_height="63dp"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextAppearance="@style/CustomToolbarTitleText" />
 
     <EditText
         android:id="@+id/txtGetCpfClientePagamentos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="@string/informe_o_cpf_do_cliente"
         android:inputType="number"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="12dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarListaPagamento" />
 
     <Button
         android:id="@+id/btnBuscarCpfClientePagamentos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="sans-serif"
         android:text="@string/buscar_pagamentos"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClientePagamentos"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarListaPagamento" />
 
     <ListView
         android:id="@+id/lstGetComprasClientePagamentos"
         android:layout_width="381dp"
         android:layout_height="332dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corners_background"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClientePagamentos" />
 
@@ -85,38 +89,41 @@
         android:id="@+id/btnBuscarCpfClienteListaPagamentos"
         android:layout_width="97dp"
         android:layout_height="68dp"
-        android:layout_marginTop="606dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif"
         android:text="Buscar Cliente"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewSaldoClientePagamentos" />
 
     <Button
         android:id="@+id/btnRegistrarNovaCompraPagamentos"
         android:layout_width="116dp"
         android:layout_height="72dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="606dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif"
         android:text="Registrar Compra"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintStart_toStartOf="@+id/btnBuscarCpfClienteListaPagamentos"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnBuscarCpfClienteListaPagamentos"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewSaldoClientePagamentos" />
 
     <Button
         android:id="@+id/btnRegistrarPagamentoPagamentos"
         android:layout_width="122dp"
         android:layout_height="71dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="606dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="sans-serif"
         android:text="Pagamento"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintStart_toStartOf="@+id/btnRegistrarNovaCompraPagamentos"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toEndOf="@+id/btnRegistrarNovaCompraPagamentos"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewSaldoClientePagamentos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
