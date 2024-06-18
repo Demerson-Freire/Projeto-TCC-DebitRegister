@@ -21,7 +21,7 @@ public class ApiServiceManager {
 
             // Construir o Retrofit com o cliente configurado
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.16:8080")
+                    .baseUrl("https://api-debit.onrender.com")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient.build())
                     .build();

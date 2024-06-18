@@ -7,7 +7,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://192.168.0.16:8080"; // Defina a URL base aqui
+    private static final String BASE_URL = "https://api-debit.onrender.com"; // Defina a URL base aqui
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {

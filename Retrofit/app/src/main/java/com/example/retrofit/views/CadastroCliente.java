@@ -2,6 +2,7 @@ package com.example.retrofit.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +27,10 @@ import com.example.retrofit.watchers.CPFFormatWatcher;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +45,8 @@ public class CadastroCliente extends AppCompatActivity {
     private ApiService apiService;
 
     private FirebaseAuth mAuth;
+
+    private FirebaseAuth mAuth2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +82,7 @@ public class CadastroCliente extends AppCompatActivity {
                 .build();
         FirebaseApp.initializeApp(this, options1, "DebitRegisterCliente");
 
-        mAuth = FirebaseAuth.getInstance(FirebaseApp.getInstance("DebitRegisterCliente"));
+        mAuth2 = FirebaseAuth.getInstance(FirebaseApp.getInstance("DebitRegisterCliente"));
 
         btnCadastrarCliente.setOnClickListener(view -> verificarCadastroCliente());
 
@@ -160,17 +167,68 @@ public class CadastroCliente extends AppCompatActivity {
     }
 
 
-    private void cadastroClienteFirebase(){
+    private void cadastroClienteFirebase() {
         String email = txtEmailCadastroCliente.getText().toString();
         String senha = txtSenhaCadastroCliente.getText().toString();
+        String cpf = txtCpfCadastroCliente.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(email, senha)
+        if (email.isEmpty() || senha.isEmpty() || cpf.isEmpty()) {
+            Toast.makeText(CadastroCliente.this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth2.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        cadastrarCliente();
+                        FirebaseUser user = mAuth2.getCurrentUser();
+                        if (user != null) {
+                            Log.d("CadastroCliente", "Usuário criado com sucesso. UID: " + user.getUid());
+
+                            String userId = user.getUid();
+
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("usuarios");
+                            reference.child(userId).child("email").setValue(email);
+                            reference.child(userId).child("cpf").setValue(cpf)
+                                    .addOnSuccessListener(aVoid -> {
+                                        cadastrarCliente();
+                                        salvarTokenDispositivo(userId);
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Log.e("CadastroCliente", "Falha ao salvar os dados no Realtime Database.", e);
+                                        Toast.makeText(CadastroCliente.this, "Falha ao salvar os dados no Realtime Database.", Toast.LENGTH_SHORT).show();
+                                    });
+                        } else {
+                            Log.e("CadastroCliente", "Usuário é nulo após a criação.");
+                            Toast.makeText(CadastroCliente.this, "Usuário não encontrado.", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText(CadastroCliente.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Erro desconhecido";
+                        Log.e("CadastroCliente", "Falha na autenticação: " + errorMessage);
+                        Toast.makeText(CadastroCliente.this, "Authentication failed: " + errorMessage, Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+
+
+    private void salvarTokenDispositivo(String userId) {
+        // Obter o token de registro do dispositivo
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        String token = task.getResult();
+                        // Enviar o token para o backend ou salvá-lo no Realtime Database diretamente
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("usuarios");
+                        reference.child(userId).child("token").setValue(token)
+                                .addOnSuccessListener(aVoid -> {
+                                })
+                                .addOnFailureListener(e -> {
+                                    // Falha ao salvar o token
+                                    Toast.makeText(CadastroCliente.this, "Falha ao salvar o token no Realtime Database.", Toast.LENGTH_SHORT).show();
+                                });
+                    } else {
+                        // Lidar com possíveis erros ao obter o token
+                        Toast.makeText(CadastroCliente.this, "Erro ao obter o token de registro.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
