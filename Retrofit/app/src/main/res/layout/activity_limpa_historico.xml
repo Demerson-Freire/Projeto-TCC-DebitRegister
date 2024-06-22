@@ -51,11 +51,16 @@
 
     <Button
         android:id="@+id/btnLimparHistoricoLimparHistorico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginTop="108dp"
         android:backgroundTint="#DC0202"
+        android:drawableLeft="@drawable/baseline_delete_forever_24"
+        android:drawablePadding="8dp"
         android:fontFamily="sans-serif"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="Apagar Histórico"
         android:textStyle="bold"
         android:typeface="serif"
@@ -73,6 +78,11 @@
         android:text="Buscar CPF"
         android:textStyle="bold"
         android:typeface="serif"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteLimparHistorico"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCpfClienteLimparHistorico" />
 </androidx.constraintlayout.widget.ConstraintLayout>

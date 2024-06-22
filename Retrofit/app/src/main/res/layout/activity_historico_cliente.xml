@@ -38,7 +38,7 @@
         android:id="@+id/btnRegistrarNovaCompraHistorico"
         android:layout_width="122dp"
         android:layout_height="65dp"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:fontFamily="sans-serif"
         android:text="Registrar Compra"
@@ -57,6 +57,11 @@
         android:text="Buscar Cliente"
         android:textStyle="bold"
         android:typeface="serif"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewValorDebitoHistorico" />
 
@@ -76,17 +81,20 @@
 
     <Button
         android:id="@+id/btnLimpraHistoricoHistorico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#DC0000"
+        android:drawableLeft="@drawable/baseline_delete_forever_24"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="Limprar histórico"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarNovaCompraHistorico"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarNovaCompraHistorico" />
 
     <Button
         android:id="@+id/btnRegistrarPagamentoHistorico"
@@ -107,11 +115,11 @@
         android:id="@+id/lstListaHistorico"
         android:layout_width="374dp"
         android:layout_height="311dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/rounded_corners_background"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintHorizontal_bias="0.324"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtGetCpfClienteHistorico" />
 
@@ -125,6 +133,11 @@
         android:text="Buscar Histórico"
         android:textStyle="bold"
         android:typeface="serif"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toEndOf="@+id/txtGetCpfClienteHistorico"

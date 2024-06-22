@@ -103,10 +103,15 @@
 
     <Button
         android:id="@+id/btnCadastrarUsuarioCadastroUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginTop="64dp"
+        android:drawableLeft="@drawable/baseline_save_24"
+        android:drawablePadding="8dp"
         android:fontFamily="sans-serif"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="Cadastrar"
         android:textStyle="bold"
         android:typeface="serif"
