@@ -24,8 +24,8 @@
 
     <Button
         android:id="@+id/btnAdmCadastros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="52dp"
         android:fontFamily="sans-serif"
         android:text="Cadastros dos Clientes"
@@ -38,8 +38,8 @@
 
     <Button
         android:id="@+id/btnAdmHistoricoMenuPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="52dp"
         android:fontFamily="sans-serif"
         android:text="Histórico dos Clientes"
@@ -52,9 +52,9 @@
 
     <Button
         android:id="@+id/btnAdmComprasMenuPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="90dp"
         android:fontFamily="sans-serif"
         android:text="Administar Compras"
         android:textStyle="bold"
@@ -65,8 +65,8 @@
 
     <Button
         android:id="@+id/btnAdmPagamentosMenuPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="52dp"
         android:fontFamily="sans-serif"
         android:text="Administrar pagamentos"
@@ -79,8 +79,8 @@
 
     <Button
         android:id="@+id/btnCadastrarUsuarioMenuPrincipal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:layout_marginTop="52dp"
         android:fontFamily="sans-serif"
         android:text="Cadastrar Administrador"

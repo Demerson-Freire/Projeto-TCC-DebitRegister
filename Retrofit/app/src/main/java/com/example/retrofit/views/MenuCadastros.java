@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuCadastros extends AppCompatActivity {
 
-    Button btnCadastrarClienteMenu, btnDeletarCadastroMenu;
+    Button btnDeletarCadastroMenu;
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,16 +37,10 @@ public class MenuCadastros extends AppCompatActivity {
         setTitle("Menu Cadastros");
 
         Toolbar toolbar = findViewById(R.id.toolbarMenuCadastros);
-        btnCadastrarClienteMenu = findViewById(R.id.btnCadastrarClienteMenuCadastro);
         btnDeletarCadastroMenu = findViewById(R.id.btnDeletarClienteMenuCadastro);
 
         setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
-
-        btnCadastrarClienteMenu.setOnClickListener(v -> {
-            Intent intent = new Intent(MenuCadastros.this, CadastroCliente.class);
-            startActivity(intent);
-        });
 
         btnDeletarCadastroMenu.setOnClickListener(v -> {
             Intent intent2 = new Intent(MenuCadastros.this, DeletaCliente.class);
