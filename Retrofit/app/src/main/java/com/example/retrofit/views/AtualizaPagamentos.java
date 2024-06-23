@@ -297,6 +297,9 @@ public class AtualizaPagamentos extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Notificação enviada com sucesso
                     Toast.makeText(AtualizaPagamentos.this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AtualizaPagamentos.this, MenuPrincipal.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     // Falha ao enviar a notificação
                     Toast.makeText(AtualizaPagamentos.this, "Erro ao enviar a notificação!", Toast.LENGTH_SHORT).show();

@@ -221,6 +221,9 @@ public class AtualizaCompras extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Notificação enviada com sucesso
                     Toast.makeText(AtualizaCompras.this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AtualizaCompras.this, ListaCompras.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     // Falha ao enviar a notificação
                     Toast.makeText(AtualizaCompras.this, "Erro ao enviar a notificação!", Toast.LENGTH_SHORT).show();
@@ -237,6 +240,7 @@ public class AtualizaCompras extends AppCompatActivity {
 
     private void deletaCompra(){
         int codigo = getIntent().getIntExtra("codigo", 0);
+        String idCliente = txtGetIdCliente.getText().toString();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("AVISO!");
@@ -248,6 +252,7 @@ public class AtualizaCompras extends AppCompatActivity {
                 public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                     if (response.isSuccessful()){
                         Toast.makeText(AtualizaCompras.this, "Compra deletada com sucesso", Toast.LENGTH_SHORT).show();
+                        fetchTokenDel(idCliente);
                     } else {
                         Toast.makeText(AtualizaCompras.this, "Falha ao deletar compra", Toast.LENGTH_SHORT).show();
                     }
@@ -264,4 +269,60 @@ public class AtualizaCompras extends AppCompatActivity {
         });
         alert.show();
     }
+
+    private void fetchTokenDel(String cpf) {
+        Retrofit retrofit = RetrofitClient.getClient();
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        Call<String> call = apiService.getToken(cpf);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String token = response.body();
+                    enviarNotificacaoDel(token);
+                } else {
+                    Toast.makeText(AtualizaCompras.this, "Token não encontrado!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                Toast.makeText(AtualizaCompras.this, "Erro: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void enviarNotificacaoDel(String token) {
+
+        double valor = Double.parseDouble(txtGetValorCompra.getText().toString());
+
+        String title = "Compra deletada!";
+        String body = "Uma compra foi deletada no valor de R$:"+valor+", na sua conta Debit Register!\n" +
+                "Caso você não reconheça essa alteração, entre em contato com o vendedor.";
+
+        // Envia a notificação usando o token
+        apiService.sendNotification(token, title, body).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Notificação enviada com sucesso
+                    Toast.makeText(AtualizaCompras.this, "Notificação enviada com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AtualizaCompras.this, MenuPrincipal.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    // Falha ao enviar a notificação
+                    Toast.makeText(AtualizaCompras.this, "Erro ao enviar a notificação!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                // Trate a falha na requisição
+                Toast.makeText(AtualizaCompras.this, "Falha ao tentar enviar notificação", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

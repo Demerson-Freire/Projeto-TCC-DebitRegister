@@ -72,22 +72,28 @@ public class LoginAdm extends AppCompatActivity {
         String email = txtGetEmail.getText().toString();
         String password = txtGetSenha.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInWithEmail:success");
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        Intent intent = new Intent(LoginAdm.this, MenuPrincipal.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithEmail:failure", task.getException());
-                        Toast.makeText(LoginAdm.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        //updateUI(null);
-                    }
-                });
+        if(email.isEmpty() || password.isEmpty()){
+            Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(LoginAdm.this, MenuPrincipal.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginAdm.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    });
+        }
+
+
     }
 
     public void onClickTextView(View view) {

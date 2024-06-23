@@ -11,8 +11,8 @@
 
     <EditText
         android:id="@+id/txtGetEmailAdm"
-        android:layout_width="217dp"
-        android:layout_height="48dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:layout_marginTop="272dp"
         android:ems="10"
         android:hint="E-mail"
@@ -25,13 +25,13 @@
 
     <EditText
         android:id="@+id/txtGetSenhaAdm"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Senha"
-        android:textColor="#FF000000"
         android:inputType="textPassword"
+        android:textColor="#FF000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +39,8 @@
 
     <Button
         android:id="@+id/btnLogarUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:id="@+id/txtViewNovaSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="12dp"
         android:fontFamily="sans-serif"
         android:text="Esqueceu sua senha?"
@@ -64,27 +64,27 @@
 
     <TextView
         android:id="@+id/txtLinkNovaSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="103dp"
+        android:layout_height="27dp"
         android:layout_marginTop="12dp"
-        android:minHeight="48dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="sans-serif"
+        android:minHeight="48dp"
         android:onClick="onClickTextView"
         android:text="CLIQUE AQUI!"
         android:textColor="#0334C8"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/txtViewNovaSenha"
         app:layout_constraintTop_toBottomOf="@+id/txtGetSenhaAdm" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="290dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="160dp"
+        android:layout_width="210dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="136dp"
         android:fontFamily="@font/ultra"
         android:text="DEBIT REGISTER"
         android:textAlignment="center"
@@ -92,7 +92,7 @@
         android:textSize="28sp"
         android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -28,7 +28,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="52dp"
         android:fontFamily="sans-serif"
-        android:text="Cadastros dos Clientes"
+        android:text="Administrar Clientes"
         android:textStyle="bold"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"

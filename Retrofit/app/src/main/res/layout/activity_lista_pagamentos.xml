@@ -37,8 +37,8 @@
 
     <Button
         android:id="@+id/btnBuscarCpfClientePagamentos"
-        android:layout_width="145dp"
-        android:layout_height="54dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:drawableLeft="@drawable/baseline_search_24"
@@ -97,7 +97,7 @@
 
     <Button
         android:id="@+id/btnBuscarCpfClienteListaPagamentos"
-        android:layout_width="122dp"
+        android:layout_width="130dp"
         android:layout_height="65dp"
         android:drawableLeft="@drawable/baseline_search_24"
         android:drawablePadding="8dp"
@@ -117,7 +117,7 @@
 
     <Button
         android:id="@+id/btnRegistrarNovaCompraPagamentos"
-        android:layout_width="122dp"
+        android:layout_width="130dp"
         android:layout_height="65dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
@@ -130,7 +130,7 @@
 
     <Button
         android:id="@+id/btnRegistrarPagamentoPagamentos"
-        android:layout_width="122dp"
+        android:layout_width="130dp"
         android:layout_height="65dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
