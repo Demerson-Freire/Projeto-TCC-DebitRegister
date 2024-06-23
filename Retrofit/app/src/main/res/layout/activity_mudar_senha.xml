@@ -42,6 +42,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Informe seu e-mail:"
+        android:textColor="#FF000000"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"

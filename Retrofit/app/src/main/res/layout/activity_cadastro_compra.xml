@@ -44,6 +44,7 @@
         android:ems="10"
         android:hint="Informe CPF do cliente:"
         android:inputType="number"
+        android:textColor="#FF000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +75,7 @@
         android:paddingEnd="16dp"
         android:text="Buscar CPF do Cliente"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSalvarCompraCadastrandoCompra" />
 
@@ -103,6 +105,7 @@
         android:ems="10"
         android:hint="Informe Valor da Compra:"
         android:inputType="numberDecimal"
+        android:textColor="#FF000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"

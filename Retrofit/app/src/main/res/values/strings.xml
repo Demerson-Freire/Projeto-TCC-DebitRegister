@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Retrofit</string>
+    <string name="app_name">DebitRegister\nAdministrador</string>
     <string name="op_es">Opções</string>
-    <string name="deslogar">Deslogar</string>
+    <string name="deslogar">Sair</string>
     <string name="menu_principal">Menu Principal</string>
     <string name="informe_o_cpf_do_cliente">Informe o CPF do cliente:</string>
     <string name="buscar_pagamentos">Buscar Pagamentos</string>
